@@ -34,11 +34,14 @@ def tweets_with_dates():
             yy = datetime.datetime.fromtimestamp(ff)
             xx = datetime.datetime.fromtimestamp(ff).strftime('%m-%d')
             print yy
-            print xx
+            # print xx
             if xx > '03-20' and xx < '11-00':
-                df.loc[df['timestamp'] == ff, 'timestamp'] = ff - 3600 * 6
+                print 'xx'
+                df.loc[df['timestamp'] == ff, 'timestamp'] = ff - 3600 * 5
             else:
-                df.loc[df['timestamp'] == ff, 'timestamp'] = ff - 3600 * 7
+                print 'yy'
+                df.loc[df['timestamp'] == ff, 'timestamp'] = ff - 3600 * 6
+                # print datetime.datetime.fromtimestamp(ff - 3600 * 5)
         df['timestamp'] = pd.to_datetime(df['timestamp'], unit='s')
         print df
 
